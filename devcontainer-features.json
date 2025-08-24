@@ -1,11 +1,11 @@
 {
   "sourceInformation": {
-    "source": "https://github.com/yourusername/devcontainer-features"
+    "source": "https://github.com/ConnorD/devcontainer-features"
   },
   "features": {
     "hello-world": {
       "description": "A simple hello world feature that installs a greeting command",
-      "documentationURL": "https://github.com/yourusername/devcontainer-features/tree/main/src/hello-world"
+      "documentationURL": "https://github.com/ConnorD/devcontainer-features/tree/main/src/hello-world"
     }
   }
 }
