@@ -1,0 +1,21 @@
+{
+  "id": "arduino-cli",
+  "version": "1.0.0",
+  "name": "Arduino CLI",
+  "description": "Installs the Arduino CLI for managing Arduino boards, libraries, and sketches",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "latest",
+      "description": "Version of Arduino CLI to install. Use 'latest' for the most recent release."
+    },
+    "installPath": {
+      "type": "string",
+      "default": "/usr/local/bin",
+      "description": "Installation path for the Arduino CLI binary"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
