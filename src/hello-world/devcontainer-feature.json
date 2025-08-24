@@ -1,0 +1,21 @@
+{
+  "id": "hello-world",
+  "version": "1.0.0",
+  "name": "Hello World",
+  "description": "A simple hello world feature that installs a greeting command",
+  "options": {
+    "greeting": {
+      "type": "string",
+      "default": "Hello",
+      "description": "The greeting to use"
+    },
+    "name": {
+      "type": "string",
+      "default": "World",
+      "description": "The name to greet"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
