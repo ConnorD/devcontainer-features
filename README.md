@@ -6,7 +6,7 @@ This repository contains a collection of [Dev Container Features](https://contai
 
 | Feature | Description |
 |---------|-------------|
-| [hello-world](./src/hello-world) | A simple hello world feature that installs a greeting command |
+| [arduino-cli](./src/arduino-cli) | Installs the Arduino CLI for managing Arduino boards, libraries, and sketches |
 
 ## Usage
 
@@ -16,13 +16,43 @@ To use these features in your dev container, add them to your `devcontainer.json
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
-    "ghcr.io/yourusername/devcontainer-features/hello-world:1": {
-      "greeting": "Hello",
-      "name": "Developer"
+    "ghcr.io/connordenman/devcontainer-features/arduino-cli:1": {
+      "version": "latest",
+      "installPath": "/usr/local/bin"
     }
   }
 }
 ```
+
+### Arduino CLI Feature
+
+The `arduino-cli` feature installs the [Arduino CLI](https://arduino.github.io/arduino-cli/) tool, which allows you to manage Arduino boards, libraries, and sketches from the command line.
+
+#### Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `version` | string | `"latest"` | Version of Arduino CLI to install. Use `"latest"` for the most recent release, or specify a version |
+| `installPath` | string | `"/usr/local/bin"` | Installation path for the Arduino CLI binary |
+
+#### Example Usage
+
+```json
+{
+  "features": {
+    "ghcr.io/connordenman/devcontainer-features/arduino-cli:1": {
+      "version": "0.35.0"
+    }
+  }
+}
+```
+
+After installation, you can use Arduino CLI commands like:
+- `arduino-cli config init` - Initialize configuration
+- `arduino-cli board list` - List connected boards
+- `arduino-cli lib search` - Search for libraries
+- `arduino-cli compile` - Compile sketches
+- `arduino-cli upload` - Upload sketches to boards
 
 ## Publishing Features
 
@@ -69,7 +99,7 @@ You can test your features locally using the [Dev Container CLI](https://github.
 npm install -g @devcontainers/cli
 
 # Test a feature
-devcontainer features test --features hello-world .
+devcontainer features test --features arduino-cli .
 ```
 
 ## License
