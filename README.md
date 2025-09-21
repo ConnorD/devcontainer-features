@@ -40,9 +40,7 @@ The `arduino-cli` feature installs the [Arduino CLI](https://arduino.github.io/a
 ```json
 {
   "features": {
-    "ghcr.io/connordenman/devcontainer-features/arduino-cli:1": {
-      "version": "0.35.0"
-    }
+    "ghcr.io/connordenman/devcontainer-features/arduino-cli:1": {}
   }
 }
 ```
