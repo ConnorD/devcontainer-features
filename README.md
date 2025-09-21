@@ -52,6 +52,38 @@ After installation, you can use Arduino CLI commands like:
 - `arduino-cli compile` - Compile sketches
 - `arduino-cli upload` - Upload sketches to boards
 
+#### USB Device Access
+
+To connect and upload to Arduino boards via USB, you need to mount the USB devices into your devcontainer. This must be configured in your `.devcontainer/devcontainer.json` file (not in the feature itself).
+
+Add the appropriate USB device to your `devcontainer.json`:
+
+```json
+{
+  "features": {
+    "ghcr.io/connordenman/devcontainer-features/arduino-cli:1": {}
+  },
+  "runArgs": [
+    "--device=/dev/ttyUSB0:/dev/ttyUSB0"
+  ]
+}
+```
+
+For macOS, Arduino boards typically appear as `/dev/tty.usbmodem*` or `/dev/tty.usbserial*`. For Linux, they appear as `/dev/ttyUSB*` or `/dev/ttyACM*`.
+
+Alternatively, for full USB access (less secure):
+
+```json
+{
+  "runArgs": ["--privileged"],
+  "mounts": [
+    "source=/dev,target=/dev,type=bind"
+  ]
+}
+```
+
+**Note**: USB device mounting requires host-level permissions and must be configured by the devcontainer consumer, not by the feature itself.
+
 ## Publishing Features
 
 This repository is set up to automatically publish features to GitHub Container Registry when you push changes to the main branch.
